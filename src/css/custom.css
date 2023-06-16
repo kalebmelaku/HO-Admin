@@ -1,0 +1,32 @@
+/* (A) EDITABLE TABLE */
+.editable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.editable th,
+.editable td {
+  text-align: left;
+  padding: 15px;
+}
+
+.editable td.edit {
+  background: #fff;
+  color: #000;
+}
+
+/* (X) DOES NOT MATTER */
+/* PAGE & BODY */
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* WIDGET *//*# sourceMappingURL=custom.css.map */
