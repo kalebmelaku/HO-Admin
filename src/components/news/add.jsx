@@ -1,10 +1,10 @@
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../navbar/NavBar";
 import QuickLinks from "../quickLinks/QuickLinks";
 import { useState } from "react";
-import {  addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db, storage } from "../../config/firebase";
-import {ref, uploadBytes, getDownloadURL} from 'firebase/storage'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export default function AddNews() {
     const navigate = useNavigate();
@@ -12,33 +12,30 @@ export default function AddNews() {
     const [body, setBody] = useState('');
     const [img, setImg] = useState('');
     const [error, setError] = useState('');
-    const filePath = `image_${Date.now()}`
+    const filePath = `image_${Date.now()}`;
+    // let image
 
-    
-    const CollectionRef = collection(db, "news")
+    const CollectionRef = collection(db, "news");
     async function addNews(e) {
         e.preventDefault();
-        const imageRef = ref(storage, filePath)
-        uploadBytes(imageRef, img).then(() => {
-            getDownloadURL(imageRef).then((uri) => {
-                setImg(uri);
-                console.log('from upload: '+img);
-            })
-            .catch((error) => setError(error.message))
-        }).catch((error) => setError(error.message))
-        console.log('outside upload: '+img);
-        await addDoc(CollectionRef, {
-            title: title,
-            body: body,
-            img: img,
-            date: serverTimestamp()
-        })
-        
-        // setImg(null)
-        navigate('/news')
-
-
-
+        const imageRef = ref(storage, filePath);
+        try {
+            await uploadBytes(imageRef, img);
+            const uri = await getDownloadURL(imageRef);
+            // const setImg = async (uri)=> {
+            //     image = await uri
+            // }
+            // setImg();
+            await addDoc(CollectionRef, {
+                title: title,
+                body: body,
+                img: uri,
+                date: serverTimestamp()
+            });
+            navigate('/news');
+        } catch (error) {
+            setError(error.message);
+        }
     }
     return (
         <>
@@ -62,7 +59,7 @@ export default function AddNews() {
                                     // value={img}
                                     onChange={(e) => setImg(e.target.files[0])}
                                     className="mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#02afff] " type="file" accept="image/*" />
-                                
+
                                 <textarea
                                     value={body}
                                     onChange={(e) => setBody(e.target.value)}

@@ -4,7 +4,6 @@ import {
     collection,
     getDocs,
     query,
-    orderBy,
     deleteDoc,
     doc,
 } from "firebase/firestore";
