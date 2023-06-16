@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import LoginComp from './LoginComp';
 import Signup from './Signup';
-import { useLocation } from 'react-router-dom';
 
 function Login() {
   const [count, setCount] = useState(true);

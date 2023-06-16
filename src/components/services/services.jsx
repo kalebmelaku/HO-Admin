@@ -8,12 +8,14 @@ import {
     deleteDoc,
     doc,
 } from "firebase/firestore";
+import NavBar from "../navbar/NavBar";
+import QuickLinks from "../quickLinks/QuickLinks";
 
 
-export default function NewsTable() {
+export default function Services() {
     const [news, setNews] = useState([]);
-    const newsCollectionRef = collection(db, "news");
-    const q = query(newsCollectionRef, orderBy("date", "desc"));
+    const newsCollectionRef = collection(db, "services");
+    const q = query(newsCollectionRef);
     useEffect(() => {
         const getNews = async () => {
             const snapshot = await getDocs(q);
@@ -29,7 +31,7 @@ export default function NewsTable() {
 
     const deleteItem = async (item) => {
         // console.log(item);
-        const userDoc = doc(db, "news", item);
+        const userDoc = doc(db, "services", item);
         await deleteDoc(userDoc);
 
         const snapshot = await getDocs(q);
@@ -41,9 +43,11 @@ export default function NewsTable() {
         setNews(data);
     };
     return (
+        <>
+        <NavBar />
+        <QuickLinks />
+        <section className=' components-wrapper absolute top-[80px] right-0 h-[calc(100vh-80px)] flex w-full mx-auto'>
         <div className='overflow-scroll w-full p-8 flex mt-[20px] '>
-
-
             <div className="flex flex-col w-full">
                 <div className="overflow-x-auto w-full sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -79,5 +83,8 @@ export default function NewsTable() {
                 </div>
             </div>
         </div>
+        </section>
+        </>
+
     );
 }

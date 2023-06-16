@@ -3,7 +3,8 @@ import News from './components/news/news';
 import AddNews from './components/news/add';
 import Login from './components/login/Login';
 import NavBar from './components/navbar/NavBar';
-
+import Services from './components/services/services';
+import AddService from './components/services/addService';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
             <Route path='/' element={<Login/>}/>
             <Route path='/news' element={<News />} />
             <Route path='/addNews' element={<AddNews />} />
+            <Route path='/addService' element={<AddService />} />
+            <Route path='/services' element={<Services />} />
 
 
 

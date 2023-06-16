@@ -39,37 +39,37 @@ function Signup() {
                 <input
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-yellow-500 " type="text" placeholder="First Name" />
+                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#02afff] " type="text" placeholder="First Name" />
 
 
                 <input
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-yellow-500 " type="text" placeholder="Last Name" />
+                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#02afff] " type="text" placeholder="Last Name" />
 
 
                 <input
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-yellow-500 " type="text" placeholder="Phone" />
+                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#02afff] " type="text" placeholder="Phone" />
 
 
                 <input
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-yellow-500 " type="email" placeholder="Email" />
+                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#02afff] " type="email" placeholder="Email" />
 
 
                 <input
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-yellow-500 " type="password" placeholder="Password" />
+                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#02afff] " type="password" placeholder="Password" />
 
 
                 <input
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-yellow-500 " type="password" placeholder="Confirm Password" />
+                    className="dark:text-black mb-5 rounded-[4px] border p-3 hover:outline-none focus:outline-none hover:border-[#02afff] " type="password" placeholder="Confirm Password" />
 
             </div>
             <button className="mt-5 w-full p-2 bg-blue-800 text-white rounded-[4px] hover:bg-[#02afff] duration-300" type="submit">Sign Up</button>
